@@ -1,0 +1,4 @@
+.contenedorPokemons{
+    display: flex;
+    flex-wrap: wrap;
+}

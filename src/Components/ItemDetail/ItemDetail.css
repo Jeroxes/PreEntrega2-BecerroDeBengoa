@@ -1,0 +1,9 @@
+.contenedorItem{
+    text-align: center;
+    border: 1px blue;
+    margin: 4rem;
+}
+
+img{
+    width: 35vw;
+}
