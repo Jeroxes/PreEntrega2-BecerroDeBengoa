@@ -1,8 +1,8 @@
 const misPokemons =[
-    {id: "1", nombre: "Charmander", precio: 500, img: "../img/Charmander.png", idCat: "evolucion"},
-    {id: "2", nombre: "Digglet", precio: 50, img: "../img/Digglet.png", idCat: "evolucion"},
-    {id: "3", nombre: "Rayquaza", precio: 5000, img: "../img/Rayquaza.png", idCat: "legendarios"},
-    {id: "4", nombre: "Squirtle", precio: 500, img: "../img/Squirtle.jpg", idCat: "evolucion"},
+    {id: "1", nombre: "Charmander", stock: 10, precio: 500, img: "../img/Charmander.png", idCat: "evolucion"},
+    {id: "2", nombre: "Digglet", stock: 20, precio: 50, img: "../img/Digglet.png", idCat: "evolucion"},
+    {id: "3", nombre: "Rayquaza", stock: 2, precio: 5000, img: "../img/Rayquaza.png", idCat: "legendarios"},
+    {id: "4", nombre: "Squirtle", stock: 7, precio: 500, img: "../img/Squirtle.jpg", idCat: "evolucion"},
 ]
 
 export const getPokemons = () =>{
