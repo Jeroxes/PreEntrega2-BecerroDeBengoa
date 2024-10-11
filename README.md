@@ -1,8 +1,17 @@
-# React + Vite
+# PokeStore
+Proyecto de ecomerse basico utilizado para el curso de React JS. La aplicacion permite ver una lista de pokemons y realizar la compra de los mismos. Los pokemons y las ordenes de compra son almacenadas en Firebase.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tecnologias y herramientas utilizadas:
+-Vite
+-React
+-React-Router-DOM
+-Firebase
+-bootstrap
 
-Currently, two official plugins are available:
+## Funcionalidades:
+- Ver una lista de productos en stock
+- Agregar productos al carrito de compras
+- Ver el avance del mismo carrito
+- Ver los productos filtrados
+- Realizar una orden de compra con los datos comprados y productos seleccionados
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
