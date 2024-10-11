@@ -1,39 +1,45 @@
 import { useState, useEffect } from "react"
-import { getPokemons, getPokemonsPorCategorias } from "../../asynmock"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import Loader from "../Loader/Loader"
+import { db } from "../../Services/config"
+import { collection, getDocs, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
 
-    const [productos, setProductos] = useState([]);
-    const [loading, setLoading] = useState(false)
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(false)
 
-    const{idCategoria} = useParams()
+  const { idCategoria } = useParams()
 
-    useEffect(()=>{
-      setLoading(true)
-        const funcionPokemons = idCategoria ? getPokemonsPorCategorias : getPokemons;
+  useEffect(() => {
+    setLoading(true)
+    const misProductos = idCategoria ? query(collection(db, "productos"), where("idCat", "==", idCategoria)) : (collection(db, "productos"))
 
-        funcionPokemons(idCategoria)
-        .then(res => setProductos(res))
-        .catch((error) =>{
-          console.log(error)
+    getDocs(misProductos)
+      .then(res => {
+        setLoading(true)
+        const nuevosProductos = res.docs.map(doc => {
+          const data = doc.data()
+          return { id: doc.id, ...data }
         })
-        .finally(()=>{
-          console.log("proceso finalizado")
-          setLoading(false)
-        })
-        
-    }, [idCategoria])
+        setProductos(nuevosProductos)
+      })
+      .catch(error => console.log(error))
+      .finally(() => {
+        console.log("proceso finalizado")
+        setLoading(false)
+      })
+  }, [idCategoria])
+
 
   return (
     <>
-          <h2 style={{textAlign: "center"}}>Mis Pokemons</h2>
-          {loading ? <Loader/> : <ItemList productos = {productos}/>}
+      <h2 style={{ textAlign: "center" }}>Mis Pokemons</h2>
+      {loading ? <Loader /> : <ItemList productos={productos} />}
 
     </>
-    
+
   )
 }
 

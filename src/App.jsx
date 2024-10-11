@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CarritoProvider } from './Context/CarritoContext';
 import Cart from './Components/Cart/Cart';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Checkout from './Components/Checkout/Checkout';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             <Route path='/categoria/:idCategoria' element={<ItemListContainer />} />
             <Route path='/item/:idItem' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart/>}></Route>
+            <Route path='/checkout' element={<Checkout/>}/>
             <Route path='*' element={ <h2>Capturando Pokemons, aun no hay suerte</h2> }/>
           </Routes>
         </CarritoProvider>
